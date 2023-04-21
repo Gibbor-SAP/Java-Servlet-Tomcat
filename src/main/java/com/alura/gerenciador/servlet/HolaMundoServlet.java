@@ -10,13 +10,13 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 //hola
-@WebServlet(urlPatterns = "/hola") //este comando sirve para cambiar la url de la página
+@WebServlet(urlPatterns = "/hola") //este comando sirve para cambiar la url de la página (mapeamiento)
 public class HolaMundoServlet extends HttpServlet{
 	
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws IOException {
 		
-		PrintWriter out = resp.getWriter(); // Objeto para imprimir los datos que queremos que la página muestre
+		PrintWriter out = resp.getWriter(); //Objeto para imprimir los datos que queremos que la página muestre
 		out.println("<html>");
 		out.println("<body>");
 		out.println("Hola! felicitaciones por crear tu primer Servlet");
