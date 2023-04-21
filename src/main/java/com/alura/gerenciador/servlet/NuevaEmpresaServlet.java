@@ -10,12 +10,18 @@ import java.io.PrintWriter;
 public class NuevaEmpresaServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println("mueva empresa registrada");
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		System.out.println("Nueva empresa registrada");
 		
 		String nombreEmpresa = request.getParameter("nombre");
+		
+		Empresa empresa = new Empresa();
+		empresa.setNombre(nombreEmpresa);
+		
+		DB baseDeDatos = new DB();
+		baseDeDatos.agregarEmpresa(empresa);
+		
 		PrintWriter out = response.getWriter();
 		out.println("<html><body>Empresa " + nombreEmpresa + " registrada</body></html>");
 	}
-
 }
