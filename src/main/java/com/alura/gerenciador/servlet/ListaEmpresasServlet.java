@@ -1,5 +1,6 @@
 package com.alura.gerenciador.servlet;
 
+import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -15,20 +16,15 @@ import org.apache.jasper.tagplugins.jstl.core.ForEach;
 public class ListaEmpresasServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+	protected void service(HttpServletRequest request, HttpServletResponse response) // service permite recibir un post o un get.
 			throws ServletException, IOException {
 
 		DB baseDeDatos = new DB();
-		List<Empresa> listaEmpresa = baseDeDatos.getEmpresas();
-
-		PrintWriter out = response.getWriter();
-		out.println("<html><body>");
-		out.println("<ul>");
-		for (Empresa empresa : listaEmpresa) {
-			out.println("<li>" + empresa.getNombre() + "</li>");
-		}
-		out.println("</ul>");
-		out.println("</html></body>");
+		List<Empresa> listaEmpresas = baseDeDatos.getEmpresas();
+		
+		request.setAttribute("empresas", listaEmpresas);
+		RequestDispatcher rd = request.getRequestDispatcher("/listaEmpresas.jsp");
+		rd.forward(request, response);
 	}
 
 }
