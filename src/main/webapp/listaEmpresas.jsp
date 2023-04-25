@@ -1,6 +1,6 @@
-<%@page import="com.alura.gerenciador.servlet.Empresa, java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+<%@page import="com.alura.gerenciador.modelo.Empresa, java.util.List"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <!DOCTYPE html>
@@ -19,8 +19,12 @@
 	<h5>Lista de Empresas</h5> <br/>
 	
 	<ul>
-		<c:forEach items="${empresas}" var="empresa">										<!-- formato dia,mes,año -->
-			<li>${empresa.nombre} - <fmt:formatDate value="${empresa.fechaAbertura }" pattern="dd/MM/yyy"/></li>		
+		<c:forEach items="${empresas}" var="empresa">										
+			<li>
+				${empresa.nombre} - <fmt:formatDate value="${empresa.fechaAbertura }" pattern="dd/MM/yyy"/>
+				<a href="/gerenciador/entrada?accion=MostrarEmpresa&id=${empresa.id}">Modificar</a>
+				<a href="/gerenciador/entrada?accion=EliminarEmpresa&id=${empresa.id}">Eliminar</a> <!-- Método eliminar por Id -->
+			</li>		
 		</c:forEach>
 	
 	</ul>
