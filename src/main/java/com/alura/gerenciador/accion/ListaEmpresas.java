@@ -8,7 +8,7 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
-public class ListaEmpresas {
+public class ListaEmpresas implements Accion{
 	
 	public String ejecutar(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		

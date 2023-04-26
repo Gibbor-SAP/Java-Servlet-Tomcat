@@ -12,7 +12,7 @@ public class Empresa {
 		return Id;
 	}
 	public void setId(Integer id) {
-		Id = id;
+		this.Id = id;
 	}
 	public String getNombre() {
 		return nombre;

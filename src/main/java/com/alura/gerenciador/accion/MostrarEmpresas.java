@@ -7,7 +7,7 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
-public class MostrarEmpresas {
+public class MostrarEmpresas implements Accion{
 
 	public String ejecutar(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
@@ -16,7 +16,7 @@ public class MostrarEmpresas {
 		String paramId = request.getParameter("id");
 		Integer id = Integer.valueOf(paramId);
 
-		System.out.println("Listando Empresas" + id);
+		System.out.println("Mostrando Empresas" + id);
 
 		DB db = new DB();
 		Empresa emp = db.buscarEmpresaPorId(id);

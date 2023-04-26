@@ -4,14 +4,16 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Formulario empresa</title>
+<title>Login</title>
 </head>
 <body>
 	<form action="${ linkEntradaServlet }" method="post">
 
-		Nombre empresa: <input type="text" name="nombre" /> 
-		Fecha Abertura: <input type="text" name="fecha" /> <input type="hidden" name="accion"
-			value="NuevaEmpresas" /> <input type="submit">
+		Link: <input type="text" name="nombre" /> 
+		Contraseña: <input type="password" name="contrasena" /> 
+		
+		<input type="hidden" name="accion" value="Login" /> 
+		<input type="submit">
 	</form>
 </body>
 </html>

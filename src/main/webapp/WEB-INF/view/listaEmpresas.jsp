@@ -12,6 +12,11 @@
 </head>
 <body>
 
+	Usuario logado: ${loginUsuario.login };
+
+	<br/>
+	<br/>
+
 	<c:if test="${not empty empresa}">
 		Empresa ${empresa} registrada! <br/>
 	</c:if>
@@ -22,8 +27,8 @@
 		<c:forEach items="${empresas}" var="empresa">										
 			<li>
 				${empresa.nombre} - <fmt:formatDate value="${empresa.fechaAbertura }" pattern="dd/MM/yyy"/>
-				<a href="/gerenciador/entrada?accion=MostrarEmpresa&id=${empresa.id}">Modificar</a>
-				<a href="/gerenciador/entrada?accion=EliminarEmpresa&id=${empresa.id}">Eliminar</a> <!-- Método eliminar por Id -->
+				<a href="/gerenciador/entrada?accion=MostrarEmpresas&id=${empresa.id}">Modificar</a>
+				<a href="/gerenciador/entrada?accion=EliminarEmpresas&id=${empresa.id}">Eliminar</a> <!-- Método eliminar por Id -->
 			</li>		
 		</c:forEach>
 	
