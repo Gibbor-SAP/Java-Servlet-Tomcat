@@ -12,7 +12,7 @@ import jakarta.servlet.http.HttpServletResponse;
 
 public class NuevaEmpresas {
 
-	public void ejecutar(HttpServletRequest request, HttpServletResponse response)
+	public String ejecutar(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
 		System.out.println("Nueva empresa registrada");
@@ -36,7 +36,7 @@ public class NuevaEmpresas {
 		DB baseDeDatos = new DB();
 		baseDeDatos.agregarEmpresa(empresa);
 
-		response.sendRedirect("entrada?accion=ListaEmpresas");
+		return "redirect:entrada?accion=ListaEmpresas";
 	}
 
 }

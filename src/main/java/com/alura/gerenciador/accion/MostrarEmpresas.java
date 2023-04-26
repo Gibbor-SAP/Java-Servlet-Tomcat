@@ -1,17 +1,15 @@
 package com.alura.gerenciador.accion;
 
 import java.io.IOException;
-import java.util.List;
 import com.alura.gerenciador.modelo.DB;
 import com.alura.gerenciador.modelo.Empresa;
-import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 public class MostrarEmpresas {
 
-	public void ejecutar(HttpServletRequest request, HttpServletResponse response)
+	public String ejecutar(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
 
@@ -27,8 +25,7 @@ public class MostrarEmpresas {
 
 		request.setAttribute("empresas", emp);
 
-		RequestDispatcher rd = request.getRequestDispatcher("/formModificarEmpresa.jsp");
-		rd.forward(request, response);
+		 return "forward:formModificarEmpresa.jsp";
 
 	}
 
